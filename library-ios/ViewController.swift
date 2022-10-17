@@ -38,6 +38,13 @@ class ViewController: UICollectionViewController {
         return cell
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "BookDetail") as? BookDetailViewController {
+                vc.book = books[indexPath.item]
+                navigationController?.pushViewController(vc, animated: true)
+            }
+    }
+    
     func fetchBooks() {
         // TODO: Clean up queues.
         
