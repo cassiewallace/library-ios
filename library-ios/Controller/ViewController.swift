@@ -8,17 +8,18 @@
 import UIKit
 
 class ViewController: UICollectionViewController {
+    // MARK: - Variables
     var books = [Book]()
+    var dataTask: URLSessionDataTask?
 
+    // MARK: - Override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Breckenridge Library"
-        
-        // TODO: Clean up labels, styling.
+        title = "Library"
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         fetchBooks()
-        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -45,12 +46,13 @@ class ViewController: UICollectionViewController {
             }
     }
     
+    // MARK: - API Call Functions
     func fetchBooks() {
-        // TODO: Clean up queues.
-        
+        dataTask?.cancel()
+
         guard let url = URL(string: "https://library-api-cw.herokuapp.com/books/?format=json") else { return }
         
-        let dataTask = URLSession.shared.dataTask(with: url, completionHandler: { [self] (data, response, error) in
+        dataTask = URLSession.shared.dataTask(with: url, completionHandler: { [self] (data, response, error) in
         
             let decoder = JSONDecoder()
     
@@ -67,8 +69,7 @@ class ViewController: UICollectionViewController {
             }
         } )
         
-        dataTask.resume()
-        
+        dataTask?.resume()
     }
     
     func showError() {
@@ -78,5 +79,4 @@ class ViewController: UICollectionViewController {
             self.present(ac, animated: true)
         }
     }
-    
 }
