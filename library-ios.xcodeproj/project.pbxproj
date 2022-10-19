@@ -17,8 +17,10 @@
 		CB3831C828FDCEE4006923BF /* library_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3831C728FDCEE4006923BF /* library_iosUITests.swift */; };
 		CB3831CA28FDCEE4006923BF /* library_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3831C928FDCEE4006923BF /* library_iosUITestsLaunchTests.swift */; };
 		CB3831D728FDD894006923BF /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3831D628FDD893006923BF /* Book.swift */; };
-		CB3831D928FDDAD6006923BF /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3831D828FDDAD6006923BF /* BookCell.swift */; };
 		CB7145CC28FDFC6A004B3735 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7145CB28FDFC6A004B3735 /* BookDetailViewController.swift */; };
+		CBD51FE129003C5C0036C12E /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD51FE029003C5C0036C12E /* UIImageView+Extensions.swift */; };
+		CBD51FE329003C830036C12E /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD51FE229003C830036C12E /* URL+Extensions.swift */; };
+		CBD51FE6290055740036C12E /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD51FE5290055740036C12E /* BookCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,8 +55,10 @@
 		CB3831C728FDCEE4006923BF /* library_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = library_iosUITests.swift; sourceTree = "<group>"; };
 		CB3831C928FDCEE4006923BF /* library_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = library_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CB3831D628FDD893006923BF /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
-		CB3831D828FDDAD6006923BF /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		CB7145CB28FDFC6A004B3735 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
+		CBD51FE029003C5C0036C12E /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImageView+Extensions.swift"; path = "library-ios/Utilities/UIImageView+Extensions.swift"; sourceTree = SOURCE_ROOT; };
+		CBD51FE229003C830036C12E /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "URL+Extensions.swift"; path = "library-ios/Utilities/URL+Extensions.swift"; sourceTree = SOURCE_ROOT; };
+		CBD51FE5290055740036C12E /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,7 @@
 		CB3831A528FDCED8006923BF /* library-ios */ = {
 			isa = PBXGroup;
 			children = (
+				CBD51FDD29003C130036C12E /* Utilities */,
 				CB3831B428FDCEE3006923BF /* Info.plist */,
 				CB3831A628FDCED8006923BF /* AppDelegate.swift */,
 				CB3831A828FDCED8006923BF /* SceneDelegate.swift */,
@@ -144,7 +149,7 @@
 		CB7145CE28FE0AFF004B3735 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CB7145D228FE0E06004B3735 /* Cells */,
+				CBD51FE4290055670036C12E /* Cells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -168,10 +173,20 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		CB7145D228FE0E06004B3735 /* Cells */ = {
+		CBD51FDD29003C130036C12E /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				CB3831D828FDDAD6006923BF /* BookCell.swift */,
+				CBD51FE029003C5C0036C12E /* UIImageView+Extensions.swift */,
+				CBD51FE229003C830036C12E /* URL+Extensions.swift */,
+			);
+			name = Utilities;
+			path = Resources/Utilities;
+			sourceTree = "<group>";
+		};
+		CBD51FE4290055670036C12E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CBD51FE5290055740036C12E /* BookCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -311,8 +326,10 @@
 				CB3831AB28FDCED8006923BF /* ViewController.swift in Sources */,
 				CB7145CC28FDFC6A004B3735 /* BookDetailViewController.swift in Sources */,
 				CB3831A728FDCED8006923BF /* AppDelegate.swift in Sources */,
+				CBD51FE6290055740036C12E /* BookCell.swift in Sources */,
+				CBD51FE329003C830036C12E /* URL+Extensions.swift in Sources */,
 				CB3831A928FDCED8006923BF /* SceneDelegate.swift in Sources */,
-				CB3831D928FDDAD6006923BF /* BookCell.swift in Sources */,
+				CBD51FE129003C5C0036C12E /* UIImageView+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

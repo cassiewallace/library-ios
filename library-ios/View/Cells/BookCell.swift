@@ -7,7 +7,9 @@
 
 import UIKit
 
-class BookCell: UICollectionViewCell {
-    @IBOutlet var title: UILabel!
-    @IBOutlet var author: UILabel!
+class BookCell: UITableViewCell {
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var authorLabel: UILabel!
+    
+    @IBOutlet var bookCoverThumbnail: UIImageView!
 }
