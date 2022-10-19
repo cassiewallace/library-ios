@@ -7,11 +7,12 @@
 
 import UIKit
 
-class ViewController: UICollectionViewController {
+class ViewController: UITableViewController {
     // MARK: - Variables
     var books = [Book]()
     var dataTask: URLSessionDataTask?
-
+    
+    
     // MARK: - Override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,24 +23,22 @@ class ViewController: UICollectionViewController {
         fetchBooks()
     }
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return books.count
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Book", for: indexPath) as! BookCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Book", for: indexPath) as! BookCell
         let book = books[indexPath.row]
         
-        cell.layer.borderColor = UIColor.darkGray.cgColor
-        cell.layer.borderWidth = 1
-  
-        cell.title.text = book.title
-        cell.author.text = book.author
+        cell.titleLabel.text = book.title
+        cell.authorLabel.text = book.author
+        cell.coverThumbnailImage.load(URL(book.cover_image))
   
         return cell
     }
     
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "BookDetail") as? BookDetailViewController {
                 vc.book = books[indexPath.item]
                 navigationController?.pushViewController(vc, animated: true)
@@ -60,7 +59,7 @@ class ViewController: UICollectionViewController {
                 do {
                     books = try decoder.decode([Book].self, from: data)
                     DispatchQueue.main.async {
-                        self.collectionView.reloadData()
+                        self.tableView.reloadData()
                     }
                 }
                 catch {

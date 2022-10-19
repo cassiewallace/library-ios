@@ -9,13 +9,21 @@ import UIKit
 
 class BookDetailViewController: UIViewController {
     var book: Book?
-
+    @IBOutlet var bookTitle: UILabel!
+    @IBOutlet var bookAuthor: UILabel!
+    @IBOutlet var coverThumbnailImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         guard let book = book else { return }
-        
         title = book.title
+        navigationItem.largeTitleDisplayMode = .never
+        
+        bookTitle.text = book.title
+        bookAuthor.text = book.author
+        coverThumbnailImage.load(URL(book.cover_image))
+        
     }
 
 }
