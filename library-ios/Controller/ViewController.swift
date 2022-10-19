@@ -12,8 +12,6 @@ class ViewController: UITableViewController {
     var books = [Book]()
     var dataTask: URLSessionDataTask?
     
-    // MARK: - Outlets
-    
     
     // MARK: - Override Functions
     override func viewDidLoad() {
@@ -35,7 +33,7 @@ class ViewController: UITableViewController {
         
         cell.titleLabel.text = book.title
         cell.authorLabel.text = book.author
-        cell.bookCoverThumbnail.load(URL(book.cover_image))
+        cell.coverThumbnailImage.load(URL(book.cover_image))
   
         return cell
     }

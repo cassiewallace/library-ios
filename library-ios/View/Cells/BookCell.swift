@@ -8,8 +8,7 @@
 import UIKit
 
 class BookCell: UITableViewCell {
+    @IBOutlet var coverThumbnailImage: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var authorLabel: UILabel!
-    
-    @IBOutlet var bookCoverThumbnail: UIImageView!
 }

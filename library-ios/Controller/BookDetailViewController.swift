@@ -11,6 +11,7 @@ class BookDetailViewController: UIViewController {
     var book: Book?
     @IBOutlet var bookTitle: UILabel!
     @IBOutlet var bookAuthor: UILabel!
+    @IBOutlet var coverThumbnailImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,8 @@ class BookDetailViewController: UIViewController {
         
         bookTitle.text = book.title
         bookAuthor.text = book.author
+        coverThumbnailImage.load(URL(book.cover_image))
+        
     }
 
 }
