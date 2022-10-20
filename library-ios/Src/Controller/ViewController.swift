@@ -8,19 +8,20 @@
 import UIKit
 
 class ViewController: UITableViewController {
+
     // MARK: - Variables
+    
     var books = [Book]()
-    var dataTask: URLSessionDataTask?
     
+    // MARK: - Delegates
     
-    // MARK: - Override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Library"
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        fetchBooks()
+        getBooks()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -42,33 +43,25 @@ class ViewController: UITableViewController {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "BookDetail") as? BookDetailViewController {
                 vc.book = books[indexPath.item]
                 navigationController?.pushViewController(vc, animated: true)
-            }
+        }
     }
     
-    // MARK: - API Call Functions
-    func fetchBooks() {
-        dataTask?.cancel()
+    // MARK: - Internal Functions
 
-        guard let url = URL(string: "https://library-api-cw.herokuapp.com/books/?format=json") else { return }
-        
-        dataTask = URLSession.shared.dataTask(with: url, completionHandler: { [self] (data, response, error) in
-        
-            let decoder = JSONDecoder()
-    
-            if let data = data {
-                do {
-                    books = try decoder.decode([Book].self, from: data)
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                }
-                catch {
-                    print(error)
-                }
+    func getBooks() {
+        DataStore.getBooks() { books in
+            guard let books = books else {
+                self.showError()
+                return
             }
-        } )
-        
-        dataTask?.resume()
+            
+            self.books = books
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
+        }
     }
     
     func showError() {
@@ -78,4 +71,5 @@ class ViewController: UITableViewController {
             self.present(ac, animated: true)
         }
     }
+    
 }
