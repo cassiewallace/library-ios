@@ -19,6 +19,9 @@
 		CB3831D728FDD894006923BF /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3831D628FDD893006923BF /* Book.swift */; };
 		CB5BBDB429008127006362C4 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5BBDB229008127006362C4 /* UIImageView+Extensions.swift */; };
 		CB5BBDB529008127006362C4 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5BBDB329008127006362C4 /* URL+Extensions.swift */; };
+		CB5BBDB82901D100006362C4 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5BBDB62901D100006362C4 /* DataStore.swift */; };
+		CB5BBDB92901D100006362C4 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5BBDB72901D100006362C4 /* HTTPClient.swift */; };
+		CB5BBDBD2901D202006362C4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5BBDBC2901D202006362C4 /* Constants.swift */; };
 		CB7145CC28FDFC6A004B3735 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7145CB28FDFC6A004B3735 /* BookDetailViewController.swift */; };
 		CBD51FE6290055740036C12E /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD51FE5290055740036C12E /* BookCell.swift */; };
 /* End PBXBuildFile section */
@@ -57,6 +60,9 @@
 		CB3831D628FDD893006923BF /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		CB5BBDB229008127006362C4 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		CB5BBDB329008127006362C4 /* URL+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
+		CB5BBDB62901D100006362C4 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		CB5BBDB72901D100006362C4 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		CB5BBDBC2901D202006362C4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "library-ios/Src/Constants.swift"; sourceTree = SOURCE_ROOT; };
 		CB7145CB28FDFC6A004B3735 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		CBD51FE5290055740036C12E /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,12 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				CB3831B428FDCEE3006923BF /* Info.plist */,
-				CB3831A628FDCED8006923BF /* AppDelegate.swift */,
-				CB3831A828FDCED8006923BF /* SceneDelegate.swift */,
-				CB5BBDB129008127006362C4 /* Utilities */,
-				CB7145CF28FE0B54004B3735 /* Controller */,
-				CB7145CE28FE0AFF004B3735 /* View */,
-				CB7145CD28FE0A88004B3735 /* Model */,
+				CB5BBDBA2901D1AD006362C4 /* Src */,
 				CB7145D128FE0C10004B3735 /* Resources */,
 			);
 			path = "library-ios";
@@ -141,10 +142,26 @@
 		CB5BBDB129008127006362C4 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				CB5BBDB72901D100006362C4 /* HTTPClient.swift */,
+				CB5BBDB62901D100006362C4 /* DataStore.swift */,
 				CB5BBDB229008127006362C4 /* UIImageView+Extensions.swift */,
 				CB5BBDB329008127006362C4 /* URL+Extensions.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		CB5BBDBA2901D1AD006362C4 /* Src */ = {
+			isa = PBXGroup;
+			children = (
+				CB5BBDBC2901D202006362C4 /* Constants.swift */,
+				CB3831A628FDCED8006923BF /* AppDelegate.swift */,
+				CB3831A828FDCED8006923BF /* SceneDelegate.swift */,
+				CB5BBDB129008127006362C4 /* Utilities */,
+				CB7145CF28FE0B54004B3735 /* Controller */,
+				CB7145CE28FE0AFF004B3735 /* View */,
+				CB7145CD28FE0A88004B3735 /* Model */,
+			);
+			path = Src;
 			sourceTree = "<group>";
 		};
 		CB7145CD28FE0A88004B3735 /* Model */ = {
@@ -321,6 +338,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB5BBDB92901D100006362C4 /* HTTPClient.swift in Sources */,
+				CB5BBDBD2901D202006362C4 /* Constants.swift in Sources */,
 				CB3831D728FDD894006923BF /* Book.swift in Sources */,
 				CB5BBDB429008127006362C4 /* UIImageView+Extensions.swift in Sources */,
 				CB3831AB28FDCED8006923BF /* ViewController.swift in Sources */,
@@ -329,6 +348,7 @@
 				CB5BBDB529008127006362C4 /* URL+Extensions.swift in Sources */,
 				CBD51FE6290055740036C12E /* BookCell.swift in Sources */,
 				CB3831A928FDCED8006923BF /* SceneDelegate.swift in Sources */,
+				CB5BBDB82901D100006362C4 /* DataStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
