@@ -13,7 +13,7 @@ extension UIImageView {
     //
     // Parameters:
     // url: URL location of the image.
-    func load(_ url: URL) {    
+    func load(_ url: URL, defaultImage: String) {
         DispatchQueue.global().async { [weak self] in
             if let data = try? Data(contentsOf: url) {
                 if let image = UIImage(data: data) {
@@ -21,7 +21,12 @@ extension UIImageView {
                         self?.image = image
                     }
                 }
-            }
+            } else {
+                let image = UIImage(named: defaultImage)
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
         }
     }
     
