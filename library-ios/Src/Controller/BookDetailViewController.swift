@@ -34,7 +34,7 @@ class BookDetailViewController: UIViewController {
         
         bookTitle.text = book.title
         bookAuthor.text = book.author
-        coverThumbnailImage.load(URL(book.cover_image))
+        coverThumbnailImage.load(URL(book.cover_image), defaultImage: "defaultBookImage")
     }
 
 }
