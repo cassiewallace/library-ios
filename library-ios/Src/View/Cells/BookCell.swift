@@ -8,7 +8,11 @@
 import UIKit
 
 class BookCell: UITableViewCell {
+
+    // MARK: - Variables
+    
     @IBOutlet var coverThumbnailImage: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var authorLabel: UILabel!
+    
 }

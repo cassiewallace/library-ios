@@ -8,6 +8,11 @@
 import UIKit
 
 extension UIImageView {
+
+    // Set a UIImageView's image to the contents of a URL.
+    //
+    // Parameters:
+    // url: URL location of the image.
     func load(_ url: URL) {    
         DispatchQueue.global().async { [weak self] in
             if let data = try? Data(contentsOf: url) {
@@ -19,4 +24,5 @@ extension UIImageView {
             }
         }
     }
+    
 }

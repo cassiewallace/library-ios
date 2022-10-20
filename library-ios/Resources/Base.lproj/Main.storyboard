@@ -61,10 +61,10 @@
             </objects>
             <point key="canvasLocation" x="1561.5384615384614" y="4.9763033175355451"/>
         </scene>
-        <!--View Controller-->
+        <!--Books View Controller-->
         <scene sceneID="4bk-4S-edA">
             <objects>
-                <tableViewController id="Gt9-F4-F9m" customClass="ViewController" customModule="library_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Gt9-F4-F9m" customClass="BooksViewController" customModule="library_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="27Y-sV-9DM">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

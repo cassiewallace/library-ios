@@ -8,6 +8,9 @@
 import Foundation
 
 struct Book: Codable {
+
+    // MARK: - Variables
+    
     var title: String
     var author: String
     var cover_image: String
