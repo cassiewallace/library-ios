@@ -8,7 +8,10 @@
 import Foundation
 
 class HTTPClient {
+    
     // MARK: - Class Methods
+    
+    // Make a GET request from a URL.
     static func get<T: Decodable>(url: String, completionHandler: @escaping (T?) -> Void) {
         guard let url = URL(string: url) else { return }
         
