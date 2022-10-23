@@ -13,6 +13,14 @@ struct Book: Codable {
     
     var title: String
     var author: String
-    var cover_image: String
+    var coverImage: String
     var id: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case title
+        case author
+        case id
+        case coverImage = "cover_image"
+    }
+    
 }
