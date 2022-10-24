@@ -11,7 +11,7 @@ class BookCell: UITableViewCell {
 
     // MARK: - Variables
     
-    @IBOutlet var coverThumbnailImage: UIImageView!
+    @IBOutlet var coverImage: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var authorLabel: UILabel!
     

@@ -7,34 +7,48 @@
 
 import UIKit
 
-class BookDetailViewController: UIViewController {
+class BookDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     // MARK: - Variables
     
     var book: Book?
-    @IBOutlet var bookTitle: UILabel!
-    @IBOutlet var bookAuthor: UILabel!
-    @IBOutlet var coverThumbnailImage: UIImageView!
+    @IBOutlet var tableView: UITableView!
     
     // MARK: - UIViewController Functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupView()
     }
     
     // MARK: - Private Functions
     
     private func setupView() {
-        guard let book = book else { return }
-        
-        title = book.title
+        title = book?.title
         navigationItem.largeTitleDisplayMode = .never
         
-        bookTitle.text = book.title
-        bookAuthor.text = book.author
-        coverThumbnailImage.load(URL(book.coverImage), defaultImage: "defaultBookImage")
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 
+}
+
+extension BookDetailViewController {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Book", for: indexPath) as! BookCell
+        
+        guard let book = book else { return cell }
+        
+        cell.titleLabel.text = book.title
+        cell.authorLabel.text = book.author
+        cell.coverImage.load(URL(book.coverImage), defaultImage: "defaultBookImage")
+  
+        return cell
+    }
+    
 }

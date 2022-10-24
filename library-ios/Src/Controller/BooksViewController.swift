@@ -60,7 +60,7 @@ extension BooksViewController {
         
         cell.titleLabel.text = book.title
         cell.authorLabel.text = book.author
-        cell.coverThumbnailImage.load(URL(book.coverImage), defaultImage: "defaultBookImage")
+        cell.coverImage.load(URL(book.coverImage), defaultImage: "defaultBookImage")
   
         return cell
     }
