@@ -40,7 +40,7 @@ extension BookDetailViewController {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Book", for: indexPath) as! BookCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BookDetail", for: indexPath) as! BookCell
         
         guard let book = book else { return cell }
         
