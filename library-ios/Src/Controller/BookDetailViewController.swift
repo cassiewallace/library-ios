@@ -7,14 +7,16 @@
 
 import UIKit
 
-class BookDetailViewController: UIViewController {
+class BookDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     // MARK: - Variables
+    
     var book: Book?
+    var bookAuthor: String?
+    var bookTitle: String?
+    var bookCoverImage: String?
     var bookSelectionDelegate: BookSelectionDelegate!
-    @IBOutlet var bookTitle: UILabel!
-    @IBOutlet var bookAuthor: UILabel!
-    @IBOutlet var coverThumbnailImage: UIImageView!
+    @IBOutlet var tableView: UITableView!
     
     // MARK: - UIViewController Functions
     
@@ -30,19 +32,38 @@ class BookDetailViewController: UIViewController {
         
         guard let book = book else { return }
         bookSelectionDelegate.didSelectBook(book)
+        
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 
 }
 
 // MARK: - Extensions
+extension BookDetailViewController {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BookDetail", for: indexPath) as! BookCell
+        cell.titleLabel.text = bookTitle
+        cell.authorLabel.text = bookAuthor
+        cell.coverImage.load(URL(bookCoverImage ?? ""), defaultImage: "defaultBookImage")
+  
+        return cell
+    }
+    
+}
 
 extension BookDetailViewController: BookSelectionDelegate {
 
     func didSelectBook(_ book: Book) {
         title = book.title
-        bookTitle.text = book.title
-        bookAuthor.text = book.author
-        coverThumbnailImage.load(URL(book.coverImage), defaultImage: "defaultBookImage")
+        bookTitle = book.title
+        bookAuthor = book.author
+        bookCoverImage = book.coverImage
     }
     
 }
