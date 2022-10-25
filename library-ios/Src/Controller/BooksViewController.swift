@@ -8,7 +8,7 @@
 import UIKit
 
 class BooksViewController: UITableViewController {
-
+    
     // MARK: - Variables
     
     var books = [Book]() {
@@ -48,6 +48,8 @@ class BooksViewController: UITableViewController {
     
 }
 
+// MARK: - Extensions
+
 extension BooksViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -67,9 +69,18 @@ extension BooksViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "BookDetail") as? BookDetailViewController {
+                vc.bookSelectionDelegate = vc.self
                 vc.book = books[indexPath.item]
                 navigationController?.pushViewController(vc, animated: true)
         }
     }
     
+}
+
+// MARK: - Protocols
+
+protocol BookSelectionDelegate {
+
+    func didSelectBook(_ book: Book)
+
 }
